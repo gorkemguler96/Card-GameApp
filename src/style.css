@@ -1,0 +1,28 @@
+
+.Header {
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+.Cards {
+    width: 680px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+.Cards div {
+    margin-right:1px;
+    margin-bottom: 5.5px;
+}
+.Cards img {
+    height: 100px;
+}
+/*.Cards .efekt:hover {*/
+/*    transform: rotateY(180deg);*/
+/*}*/
+/*.Cards .efekt {*/
+/*    transition: all 1s ease;*/
+/*}*/
