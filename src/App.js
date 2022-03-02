@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import {decrement, increment } from './redux/cardSlice'
 import Header from "./components/Header";
 import Kartlar from "./components/Kartlar";
+import Game from "./components/Game";
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
     <div className="App">
         <div>
             <Header />
-            <Kartlar />
+            {/*<Kartlar />*/}
+            <Game />
         </div>
     </div>
   );

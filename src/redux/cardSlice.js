@@ -221,44 +221,40 @@ export const cardSlice = createSlice({
                 check:false
             },
         ],
-        twoCheckCard:[],
-        okCheckCard:[]
+        selectedItems:[],
+        point:0
     },
     reducers: {
-        checkCard: (state,action) => {
+        turnCard: (state,action) => {
             const {id} = action.payload
-            const checkFalse = state.items.map((item)=>item.check = false)
-            state.items.map((item)=>{
+            state.items.map((item)=> {
                 if(item.id === id){
-                    state.twoCheckCard.push(item)
-
-                    if(state.twoCheckCard.length === 2){
-                        state.twoCheckCard.map((e)=>{
-                            const deneme =(state.twoCheckCard.map((i)=>i.title))
-                            if(deneme[0] === deneme[1]){
-                                state.okCheckCard.push(state.twoCheckCard)
-
-                                state.twoCheckCard = []
-
-                            }else {
-                                return (
-
-                                item.check = false,
-                                state.twoCheckCard = []
-                                )
-
-                            }
-                        })
-                    }
-                    item.check = !item.check
-
+                    item.check = true
                 }
             })
-
+        },
+        checkCard: (state,action) => {
+           const { a, b } = action.payload
+            state.items.map((item)=>{
+                if(item.id === a.id || item.id === b.id){
+                    item.check=false
+                }
+            })
+        },
+        pushItem: (state,action) => {
+            state.selectedItems.push(action.payload)
+        },
+        pointUp: (state,action) => {
+            state.point += action.payload
+        },
+        removeSelectedItems: (state,action)=> {
+            state.selectedItems = action.payload
         }
+
+
     },
 })
 
-export const { checkCard } = cardSlice.actions
+export const { checkCard,turnCard,pushItem,pointUp,removeSelectedItems } = cardSlice.actions
 
 export default cardSlice.reducer
