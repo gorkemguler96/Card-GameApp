@@ -45,3 +45,7 @@
 .greenPoint {
     color:green;
 }
+
+.modalCss Button {
+    justify-content: center;
+}

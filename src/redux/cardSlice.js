@@ -222,6 +222,7 @@ export const cardSlice = createSlice({
             },
         ],
         selectedItems:[],
+        okeyItems:[],
         point:0
     },
     reducers: {
@@ -232,6 +233,9 @@ export const cardSlice = createSlice({
                     item.check = true
                 }
             })
+        },
+        allSee: (state,action)=>{
+            state.okeyItems.push(action.payload)
         },
         checkCard: (state,action) => {
            const { a, b } = action.payload
@@ -249,12 +253,24 @@ export const cardSlice = createSlice({
         },
         removeSelectedItems: (state,action)=> {
             state.selectedItems = action.payload
+        },
+        shuffle: (state) => {
+            for (let i = state.items.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [state.items[i], state.items[j]] = [state.items[j], state.items[i]];
+            }
+        },
+        retryy: (state,action) => {
+            state.items.map((item)=>{
+                item.check = false
+            })
+        },
+        removeOkItems: (state,action) => {
+            state.okeyItems = action.payload
         }
-
-
     },
 })
 
-export const { checkCard,turnCard,pushItem,pointUp,removeSelectedItems } = cardSlice.actions
+export const { checkCard,turnCard,pushItem,pointUp,removeSelectedItems,shuffle, allSee, retryy, removeOkItems } = cardSlice.actions
 
 export default cardSlice.reducer
