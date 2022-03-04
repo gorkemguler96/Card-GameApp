@@ -12,9 +12,9 @@ function App() {
     const allNoteTitle = useSelector((state)=>state.card.value)
     const dispatch = useDispatch()
 
-    // useEffect(()=>{
-    //    dispatch(shuffle())
-    // },[])
+    useEffect(()=>{
+       dispatch(shuffle())
+    },[])
 
   return (
     <div className="App">
