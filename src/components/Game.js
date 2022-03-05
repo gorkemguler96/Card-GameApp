@@ -70,7 +70,7 @@ function Game(props) {
                         {cards.map((item)=>{
                             return(
                                 <div className={"lele"} style={{margin:1}} key={item.id}  >
-                                    <Button  onClick={()=>handleClick(item)} className={"Game"}>
+                                    <Button disabled={item.check}  onClick={()=>handleClick(item)} className={"Game"}>
                                         <img height={90} width={100} alt="example" src={item.check===false ? falseCheck: item.image } />
                                     </Button>
                                 </div>
@@ -83,7 +83,7 @@ function Game(props) {
                         {cards.map((item)=>{
                             return(
                                 <div className={"lele"} style={{margin:1}} key={item.id}  >
-                                    <Button  onClick={()=>handleClick(item)} className={"Game"}>
+                                    <Button disabled={item.check} onClick={()=>handleClick(item)} className={"Game"}>
                                         <img height={90} width={100} alt="example" src={item.check===false ? falseCheck: item.image } />
                                     </Button>
                                 </div>
