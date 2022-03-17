@@ -20,7 +20,7 @@ function App() {
     <div className="App">
         <div>
             <Header />
-            {/*<Kartlar />*/}
+            {/*deneme*/}
             <Game />
         </div>
     </div>
